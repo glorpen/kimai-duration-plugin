@@ -2,9 +2,21 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" target-language="en" datatype="plaintext" original="system-configuration.en.xlf">
         <body>
+            <trans-unit id="Glorpen.ceil">
+                <source>Glorpen.ceil</source>
+                <target>Ceil, but with overridable duration rounding</target>
+            </trans-unit>
+            <trans-unit id="Glorpen.closest">
+                <source>Glorpen.closest</source>
+                <target>Closest, but with overridable duration rounding</target>
+            </trans-unit>
             <trans-unit id="Glorpen.default">
                 <source>Glorpen.default</source>
                 <target>Standard, but with overridable duration rounding</target>
+            </trans-unit>
+            <trans-unit id="Glorpen.floor">
+                <source>Glorpen.floor</source>
+                <target>Floor, but with overridable duration rounding</target>
             </trans-unit>
         </body>
     </file>

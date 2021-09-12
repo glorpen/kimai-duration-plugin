@@ -4,6 +4,30 @@ services:
     autoconfigure: true
     public: false
 
+  glorpen.timesheet.rounding.default:
+    class: KimaiPlugin\GlorpenDurationBundle\Timesheet\Rounding\OverriddenDurationRounding
+    arguments:
+      - glorpen.default
+      - '@App\Timesheet\Rounding\DefaultRounding'
+
+  glorpen.timesheet.rounding.ceil:
+    class: KimaiPlugin\GlorpenDurationBundle\Timesheet\Rounding\OverriddenDurationRounding
+    arguments:
+      - glorpen.ceil
+      - '@App\Timesheet\Rounding\CeilRounding'
+
+  glorpen.timesheet.rounding.closest:
+    class: KimaiPlugin\GlorpenDurationBundle\Timesheet\Rounding\OverriddenDurationRounding
+    arguments:
+      - glorpen.closest
+      - '@App\Timesheet\Rounding\ClosestRounding'
+
+  glorpen.timesheet.rounding.floor:
+    class: KimaiPlugin\GlorpenDurationBundle\Timesheet\Rounding\OverriddenDurationRounding
+    arguments:
+      - glorpen.ceil
+      - '@App\Timesheet\Rounding\FloorRounding'
+
   KimaiPlugin\GlorpenDurationBundle\:
     resource: '../../*'
-    exclude: '../../{Resources,Migrations}'
+    exclude: '../../{Resources,Migrations,Timesheet}'
