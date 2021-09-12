@@ -1,5 +1,7 @@
 {
   "version": "1.0.0",
+  "name": "glorpen/kimai-duration-plugin",
+  "description": "Enables setting duration rounding option (same as global one) to override rounding for any Customer, Project or Activity.",
   "authors": [
     {
       "name": "Arkadiusz Dzięgiel",
@@ -16,10 +18,10 @@
   "scripts": {
     "codestyle": "php-cs-fixer fix --dry-run --verbose --show-progress=none",
     "codestyle-fix": "php-cs-fixer fix",
-    "codestyle-check": "vendor/bin/php-cs-fixer fix --dry-run --verbose --config=.php_cs.dist --using-cache=no --show-progress=none --format=checkstyle",
+    "codestyle-check": "vendor/bin/php-cs-fixer fix --dry-run --verbose --config=.php-cs-fixer.dist.php --using-cache=no --show-progress=none --format=checkstyle",
     "phpstan": "vendor/bin/phpstan analyse . -c phpstan.neon --level=7",
     "linting": [
-      "composer validate",
+      "composer validate --no-check-lock --no-check-version",
       "@codestyle-check",
       "@phpstan"
     ]

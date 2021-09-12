@@ -8,5 +8,4 @@ parameters:
         - vendor/
     ignoreErrors:
         - '#Method (.*) has no return typehint specified.#'
-        - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeParentInterface::end\(\).#'
     checkMissingIterableValueType: false
