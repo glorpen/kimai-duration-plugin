@@ -20,6 +20,7 @@ use App\Event\CustomerMetaDefinitionEvent;
 use App\Event\CustomerMetaDisplayEvent;
 use App\Event\ProjectMetaDefinitionEvent;
 use App\Event\ProjectMetaDisplayEvent;
+use KimaiPlugin\GlorpenDurationBundle\Timesheet\Rounding\OverriddenDurationRounding;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Validator\Constraints as Constraints;
@@ -45,7 +46,7 @@ class MetaFieldSubscriber implements EventSubscriberInterface
 
     private function setUpMetaField(MetaTableTypeInterface $field): MetaTableTypeInterface
     {
-        return $field->setName('glorpen.duration')
+        return $field->setName(OverriddenDurationRounding::META_FIELD_NAME)
             ->setLabel('Duration rounding')
             ->setOptions(['label' => 'Rounding of the duration in minutes (0 = deactivated)', 'help' => 'Leave empty to use global values'])
             ->setType(NumberType::class)

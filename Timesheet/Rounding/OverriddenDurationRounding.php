@@ -10,11 +10,14 @@
 
 namespace KimaiPlugin\GlorpenDurationBundle\Timesheet\Rounding;
 
+use App\Entity\EntityWithMetaFields;
 use App\Entity\Timesheet;
 use App\Timesheet\Rounding\RoundingInterface;
 
 class OverriddenDurationRounding implements RoundingInterface
 {
+    public const META_FIELD_NAME = 'glorpen.duration';
+
     /**
      * @var RoundingInterface
      */
@@ -35,19 +38,37 @@ class OverriddenDurationRounding implements RoundingInterface
         return $this->name;
     }
 
+    /**
+     * @param EntityWithMetaFields|null $entity
+     * @return int|null
+     */
+    private function getValue(?EntityWithMetaFields $entity): ?int
+    {
+        if ($entity === null) {
+            return null;
+        }
+
+        $metaField = $entity->getMetaField(self::META_FIELD_NAME);
+
+        if ($metaField !== null) {
+            return $metaField->getValue();
+        }
+
+        return null;
+    }
+
     public function roundDuration(Timesheet $record, $minutes)
     {
-        $metaFieldName = 'glorpen.duration';
-        $duration = $record->getActivity()->getMetaField($metaFieldName);
+        $duration = $this->getValue($record->getActivity());
         if ($duration === null) {
-            $duration = $record->getProject()->getMetaField($metaFieldName);
+            $duration = $this->getValue($record->getProject());
         }
-        if ($duration === null) {
-            $duration = $record->getProject()->getCustomer()->getMetaField($metaFieldName);
+        if ($duration === null && $record->getProject() !== null) {
+            $duration = $this->getValue($record->getProject()->getCustomer());
         }
 
         if ($duration !== null) {
-            $minutes = $duration->getValue();
+            $minutes = $duration;
         }
 
         $this->vendorRounding->roundDuration($record, $minutes);
