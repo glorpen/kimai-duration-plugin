@@ -38,7 +38,7 @@
     "kimai": {
       "require": "1.11",
       "version": "1.0.0",
-      "name": "Glorpen Duration"
+      "name": "Overridable duration rounding"
     }
   },
   "config": {
