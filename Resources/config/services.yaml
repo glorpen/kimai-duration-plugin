@@ -6,27 +6,27 @@ services:
 
   glorpen.timesheet.rounding.default:
     class: KimaiPlugin\GlorpenDurationBundle\Timesheet\Rounding\OverriddenDurationRounding
+    decorates: App\Timesheet\Rounding\DefaultRounding
     arguments:
-      - glorpen.default
-      - '@App\Timesheet\Rounding\DefaultRounding'
+      - '@glorpen.timesheet.rounding.default.inner'
 
   glorpen.timesheet.rounding.ceil:
     class: KimaiPlugin\GlorpenDurationBundle\Timesheet\Rounding\OverriddenDurationRounding
+    decorates: App\Timesheet\Rounding\CeilRounding
     arguments:
-      - glorpen.ceil
-      - '@App\Timesheet\Rounding\CeilRounding'
+      - '@glorpen.timesheet.rounding.ceil.inner'
 
   glorpen.timesheet.rounding.closest:
     class: KimaiPlugin\GlorpenDurationBundle\Timesheet\Rounding\OverriddenDurationRounding
+    decorates: App\Timesheet\Rounding\ClosestRounding
     arguments:
-      - glorpen.closest
-      - '@App\Timesheet\Rounding\ClosestRounding'
+      - '@glorpen.timesheet.rounding.closest.inner'
 
   glorpen.timesheet.rounding.floor:
     class: KimaiPlugin\GlorpenDurationBundle\Timesheet\Rounding\OverriddenDurationRounding
+    decorates: App\Timesheet\Rounding\FloorRounding
     arguments:
-      - glorpen.ceil
-      - '@App\Timesheet\Rounding\FloorRounding'
+      - '@glorpen.timesheet.rounding.floor.inner'
 
   KimaiPlugin\GlorpenDurationBundle\:
     resource: '../../*'

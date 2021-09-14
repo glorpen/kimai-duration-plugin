@@ -22,20 +22,15 @@ class OverriddenDurationRounding implements RoundingInterface
      * @var RoundingInterface
      */
     private $vendorRounding;
-    /**
-     * @var string
-     */
-    private $name;
 
-    public function __construct(string $name, RoundingInterface $vendorRounding)
+    public function __construct(RoundingInterface $vendorRounding)
     {
         $this->vendorRounding = $vendorRounding;
-        $this->name = $name;
     }
 
     public function getId(): string
     {
-        return $this->name;
+        return $this->vendorRounding->getId();
     }
 
     /**
