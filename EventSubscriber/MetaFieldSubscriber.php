@@ -51,7 +51,7 @@ class MetaFieldSubscriber implements EventSubscriberInterface
             ->setOptions(['label' => 'Rounding of the duration in minutes (0 = deactivated)', 'help' => 'Leave empty to use global values'])
             ->setType(NumberType::class)
             ->addConstraint(new Constraints\PositiveOrZero())
-            ->setIsVisible(true);
+            ->setIsVisible(false);
     }
 
     public function loadActivityFields(ActivityMetaDisplayEvent $event)
