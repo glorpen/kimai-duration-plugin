@@ -16,7 +16,7 @@ use App\Timesheet\Rounding\RoundingInterface;
 
 class OverriddenDurationRounding implements RoundingInterface
 {
-    public const META_FIELD_NAME = 'glorpen.duration';
+    public const META_FIELD_NAME = 'glorpen_duration';
 
     /**
      * @var RoundingInterface

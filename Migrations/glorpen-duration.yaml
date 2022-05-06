@@ -1,0 +1,5 @@
+table_storage:
+  table_name: bundle_migration_glorpen_duration
+
+migrations_paths:
+  KimaiPlugin\GlorpenDurationBundle\Migrations: var/plugins/GlorpenDurationBundle/Migrations

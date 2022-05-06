@@ -6,6 +6,8 @@ Enables setting duration rounding option (same as global one) to override roundi
 
 Checkout plugin into `var/plugins/GlorpenDurationBundle` & clear cache.
 
+Run `bin/console kimai:bundle:glorpen-duration:install`.
+
 ## Usage
 
 After installation, existing Rounding methods will be extended with new functionality.
