@@ -39,7 +39,7 @@ class MetaFieldSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function loadActivityMeta(ActivityMetaDefinitionEvent $event)
+    public function loadActivityMeta(ActivityMetaDefinitionEvent $event): void
     {
         $event->getEntity()->setMetaField($this->setUpMetaField(new ActivityMeta()));
     }
@@ -54,27 +54,27 @@ class MetaFieldSubscriber implements EventSubscriberInterface
             ->setIsVisible(false);
     }
 
-    public function loadActivityFields(ActivityMetaDisplayEvent $event)
+    public function loadActivityFields(ActivityMetaDisplayEvent $event): void
     {
         $event->addField($this->setUpMetaField(new ActivityMeta()));
     }
 
-    public function loadProjectMeta(ProjectMetaDefinitionEvent $event)
+    public function loadProjectMeta(ProjectMetaDefinitionEvent $event): void
     {
         $event->getEntity()->setMetaField($this->setUpMetaField(new ProjectMeta()));
     }
 
-    public function loadProjectFields(ProjectMetaDisplayEvent $event)
+    public function loadProjectFields(ProjectMetaDisplayEvent $event): void
     {
         $event->addField($this->setUpMetaField(new ProjectMeta()));
     }
 
-    public function loadCustomerMeta(CustomerMetaDefinitionEvent $event)
+    public function loadCustomerMeta(CustomerMetaDefinitionEvent $event): void
     {
         $event->getEntity()->setMetaField($this->setUpMetaField(new CustomerMeta()));
     }
 
-    public function loadCustomerFields(CustomerMetaDisplayEvent $event)
+    public function loadCustomerFields(CustomerMetaDisplayEvent $event): void
     {
         $event->addField($this->setUpMetaField(new CustomerMeta()));
     }

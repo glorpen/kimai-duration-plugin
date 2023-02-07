@@ -4,8 +4,6 @@ includes:
 parameters:
     treatPhpDocTypesAsCertain: false
     inferPrivatePropertyTypeFromConstructor: true
-    excludes_analyse:
+    excludePaths:
         - vendor/
-    ignoreErrors:
-        - '#Method (.*) has no return typehint specified.#'
     checkMissingIterableValueType: false
