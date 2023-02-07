@@ -2,6 +2,11 @@
 
 Enables setting duration rounding option (same as global one) to override rounding for any Customer, Project or Activity.
 
+| Plugin version | Supported Kimai version |
+|----------------|-------------------------|
+| 1.x            | 1.x                     |
+| 2.x            | 2.x                     |
+
 ## Installation
 
 Checkout plugin into `var/plugins/GlorpenDurationBundle` & clear cache.
