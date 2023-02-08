@@ -21,13 +21,16 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@2.14.0
+        uses: shivammathur/setup-php@2.24.0
         with:
-          php-version: 7.4
+          php-version: 8.1
           tools: composer
 
       - name: Install deps
-        run: "composer install --prefer-dist --no-progress"
+        run: |
+          composer config --no-plugins allow-plugins.symfony/runtime true
+          composer config --no-plugins allow-plugins.symfony/flex true
+          composer install --prefer-dist --no-progress
 
       - name: Linting
         run: "composer linting"
