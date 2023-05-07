@@ -52,7 +52,7 @@ class OverriddenDurationRounding implements RoundingInterface
         return null;
     }
 
-    public function roundDuration(Timesheet $record, int $minutes): void
+    public function roundDuration(Timesheet $record, $minutes): void
     {
         $duration = $this->getValue($record->getActivity());
         if ($duration === null) {
@@ -69,12 +69,12 @@ class OverriddenDurationRounding implements RoundingInterface
         $this->vendorRounding->roundDuration($record, $minutes);
     }
 
-    public function roundBegin(Timesheet $record, int $minutes): void
+    public function roundBegin(Timesheet $record, $minutes): void
     {
         $this->vendorRounding->roundBegin($record, $minutes);
     }
 
-    public function roundEnd(Timesheet $record, int $minutes): void
+    public function roundEnd(Timesheet $record, $minutes): void
     {
         $this->vendorRounding->roundEnd($record, $minutes);
     }
